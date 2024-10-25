@@ -51,6 +51,11 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.ui)
+    implementation(libs.androidx.material)
+    implementation(libs.ui.tooling.preview)
+    
     implementation(libs.androidx.core.splashscreen)
 
     implementation(libs.androidx.core.ktx)
