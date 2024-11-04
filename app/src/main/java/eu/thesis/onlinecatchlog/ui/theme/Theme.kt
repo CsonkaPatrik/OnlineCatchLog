@@ -1,6 +1,5 @@
 package eu.thesis.onlinecatchlog.ui.theme
 
-import android.app.ActionBar
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
