@@ -1,7 +1,5 @@
 package eu.thesis.onlinecatchlog.screens.login
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -31,11 +28,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.thesis.onlinecatchlog.R
-import eu.thesis.onlinecatchlog.ui.theme.Purple40
 
 @Composable
 @ExperimentalMaterial3Api
-fun SignInScreen(
+fun LoginView(
     openAndPopUp: (String, String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: LoginViewModel = hiltViewModel()
@@ -60,15 +56,11 @@ fun SignInScreen(
             singleLine = true,
             modifier = modifier
                 .fillMaxWidth()
-                .padding(16.dp, 4.dp)
-                .border(
-                    BorderStroke(width = 2.dp, color = Purple40),
-                    shape = RoundedCornerShape(50)
-                ),
+                .padding(16.dp, 4.dp),
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent
+                unfocusedIndicatorColor = Color.Transparent,
             ),
             value = email.value,
             onValueChange = { viewModel.updateEmail(it) },
@@ -80,11 +72,7 @@ fun SignInScreen(
             singleLine = true,
             modifier = modifier
                 .fillMaxWidth()
-                .padding(16.dp, 4.dp)
-                .border(
-                    BorderStroke(width = 2.dp, color = Purple40),
-                    shape = RoundedCornerShape(50)
-                ),
+                .padding(16.dp, 4.dp),
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent,
@@ -113,10 +101,5 @@ fun SignInScreen(
                 modifier = modifier.padding(0.dp, 6.dp)
             )
         }
-
-        Spacer(modifier = Modifier
-            .fillMaxWidth()
-            .padding(4.dp))
-
     }
 }
