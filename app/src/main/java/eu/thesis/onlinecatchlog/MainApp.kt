@@ -13,7 +13,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import eu.thesis.onlinecatchlog.screens.login.SignInScreen
+import eu.thesis.onlinecatchlog.screens.login.LoginView
+import eu.thesis.onlinecatchlog.screens.main.MainView
+import eu.thesis.onlinecatchlog.screens.splash.SplashScreen
 import eu.thesis.onlinecatchlog.ui.theme.OnlineCatchLogTheme
 
 
@@ -26,7 +28,7 @@ fun MainApp() {
             Scaffold { innerPaddingModifier ->
                 NavHost(
                     navController = appState.navController,
-                    startDestination = SIGN_IN_SCREEN,
+                    startDestination = SPLASH_SCREEN,
                     modifier = Modifier.padding(innerPaddingModifier)
                 ) {
                     notesGraph(appState)
@@ -45,11 +47,13 @@ fun rememberAppState(navController: NavHostController = rememberNavController())
 @OptIn(ExperimentalMaterial3Api::class)
 fun NavGraphBuilder.notesGraph(appState: MainAppState) {
     composable(SIGN_IN_SCREEN) {
-        SignInScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
+        LoginView(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 
     composable(MAIN_VIEW_SCREEN){
-
+        MainView()
     }
-
+    composable(SPLASH_SCREEN){
+        SplashScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
+    }
 }

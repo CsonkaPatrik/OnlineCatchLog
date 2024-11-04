@@ -133,7 +133,6 @@ fun Navigation(navController: NavController, viewModel: MainViewModel, pd:Paddin
     NavHost(navController = navController as NavHostController, startDestination = Screen.DrawerScreen.CatchLog.route, modifier = Modifier.padding(pd))
     {
         composable(Screen.DrawerScreen.CatchLog.route){
-            AccountView()
         }
         composable(Screen.DrawerScreen.Settings.route){
 
