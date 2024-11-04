@@ -20,16 +20,4 @@ open class MainViewModel:ViewModel() {
     fun setCurrentScreen(screen: Screen){
         _currentScreen.value = screen
     }
-
-    fun launchCatching(block: suspend CoroutineScope.() -> Unit) =
-        viewModelScope.launch(
-            CoroutineExceptionHandler { _, throwable ->
-                Log.d(ERROR_TAG, throwable.message.orEmpty())
-            },
-            block = block
-        )
-
-    companion object {
-        const val ERROR_TAG = "NOTES APP ERROR"
-    }
 }
