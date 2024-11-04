@@ -7,7 +7,7 @@ sealed class Screen(val title: String, val route: String) {
     sealed class DrawerScreen(val dTitle: String, val dRoute: String, @DrawableRes val icon: Int)
         : Screen(dTitle, dRoute){
             object  Account: DrawerScreen(
-                "Account",
+                "Fiók",
                 "account",
                 R.drawable.ic_account
             )
@@ -19,7 +19,7 @@ sealed class Screen(val title: String, val route: String) {
             )
 
             object Settings: DrawerScreen(
-                "Settings",
+                "Beállítások",
                 "settings",
                 R.drawable.ic_settings
             )
