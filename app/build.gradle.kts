@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.gms.google-services")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -52,14 +54,17 @@ android {
 
 dependencies {
 
+    kapt("com.google.dagger:hilt-compiler:2.48")
+    implementation("com.google.dagger:hilt-android:2.48")
+
     //AddAccount
-    implementation(libs.androidx.hilt.navigation.compose)
-    implementation(libs.hilt.android)
+    implementation("androidx.navigation:navigation-compose:2.6.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
     //Firebase
-    implementation(platform(libs.firebase.bom))
-    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
 
     //Navigation in app
     implementation(libs.androidx.navigation.compose)
@@ -79,7 +84,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.tools.core)
-    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -87,4 +92,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+}
+
+configurations.all {
+    exclude( group = "com.google.protobuf", module = "protobuf-javalite")
+    exclude( group = "com.google.firebase", module = "protolite-well-known-types")
 }
