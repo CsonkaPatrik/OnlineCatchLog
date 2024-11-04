@@ -12,10 +12,10 @@ sealed class Screen(val title: String, val route: String) {
                 R.drawable.ic_account
             )
 
-            object AddAccount: DrawerScreen(
-                "Add Account",
+            object CatchLog: DrawerScreen(
+                "Fogási napló",
                 "add_account",
-                R.drawable.ic_add_account
+                R.drawable.catch_log
             )
 
             object Settings: DrawerScreen(
@@ -31,6 +31,6 @@ sealed class Screen(val title: String, val route: String) {
 
 val screensInDrawer = listOf(
     Screen.DrawerScreen.Account,
-    Screen.DrawerScreen.AddAccount,
+    Screen.DrawerScreen.CatchLog,
     Screen.DrawerScreen.Settings
 )

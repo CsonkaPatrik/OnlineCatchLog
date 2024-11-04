@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 open class MainViewModel:ViewModel() {
 
-    private val _currentScreen: MutableState<Screen> = mutableStateOf(Screen.DrawerScreen.AddAccount)
+    private val _currentScreen: MutableState<Screen> = mutableStateOf(Screen.DrawerScreen.CatchLog)
 
     val currentScreen: MutableState<Screen>
         get() = _currentScreen
@@ -21,4 +21,15 @@ open class MainViewModel:ViewModel() {
         _currentScreen.value = screen
     }
 
+    fun launchCatching(block: suspend CoroutineScope.() -> Unit) =
+        viewModelScope.launch(
+            CoroutineExceptionHandler { _, throwable ->
+                Log.d(ERROR_TAG, throwable.message.orEmpty())
+            },
+            block = block
+        )
+
+    companion object {
+        const val ERROR_TAG = "NOTES APP ERROR"
+    }
 }

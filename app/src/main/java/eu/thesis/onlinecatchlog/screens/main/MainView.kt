@@ -1,4 +1,4 @@
-package eu.thesis.onlinecatchlog.ui
+package eu.thesis.onlinecatchlog.screens.main
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -35,11 +35,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import eu.thesis.onlinecatchlog.screens.main.MainViewModel
 import eu.thesis.onlinecatchlog.Screen
 import eu.thesis.onlinecatchlog.screensInDrawer
 import eu.thesis.onlinecatchlog.screens.account.AccountView
-import eu.thesis.onlinecatchlog.screens.addaccount.AddAccountView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -66,7 +64,7 @@ fun MainView(){
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Home") },
+            TopAppBar(title = { Text(title.value) },
                     navigationIcon = { IconButton(onClick = {
                         // Open drawer
                         scope.launch {
@@ -132,16 +130,16 @@ fun DrawerItem(
 
 @Composable
 fun Navigation(navController: NavController, viewModel: MainViewModel, pd:PaddingValues){
-    NavHost(navController = navController as NavHostController, startDestination = Screen.DrawerScreen.AddAccount.route, modifier = Modifier.padding(pd))
+    NavHost(navController = navController as NavHostController, startDestination = Screen.DrawerScreen.CatchLog.route, modifier = Modifier.padding(pd))
     {
-        composable(Screen.DrawerScreen.AddAccount.route){
+        composable(Screen.DrawerScreen.CatchLog.route){
             AccountView()
         }
         composable(Screen.DrawerScreen.Settings.route){
 
         }
         composable(Screen.DrawerScreen.Account.route){
-            AddAccountView()
+
         }
     }
 }
