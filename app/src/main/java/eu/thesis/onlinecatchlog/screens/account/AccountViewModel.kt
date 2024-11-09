@@ -1,6 +1,8 @@
 package eu.thesis.onlinecatchlog.screens.account
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.thesis.onlinecatchlog.ACCOUNT_SCREEN
+import eu.thesis.onlinecatchlog.CATCHLOG_SCREEN
 import eu.thesis.onlinecatchlog.SPLASH_SCREEN
 import eu.thesis.onlinecatchlog.model.service.AccountService
 import eu.thesis.onlinecatchlog.screens.MainAppViewModel
@@ -21,6 +23,12 @@ class AccountViewModel @Inject constructor(
     fun onSignOutClick() {
         launchCatching {
             accountService.signOut()
+        }
+    }
+
+    fun onCatchLogClick(openAndPopUp: (String, String) -> Unit){
+        launchCatching {
+            openAndPopUp(CATCHLOG_SCREEN, ACCOUNT_SCREEN)
         }
     }
 }
