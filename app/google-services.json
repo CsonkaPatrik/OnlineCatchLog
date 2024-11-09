@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "438829720068",
+    "firebase_url": "https://eu-thesis-onlinecatchlog-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "eu-thesis-onlinecatchlog",
+    "storage_bucket": "eu-thesis-onlinecatchlog.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438829720068:android:cdb4e00e61dab10b158b51",
+        "android_client_info": {
+          "package_name": "eu.thesis.onlinecatchlog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ6tEzAmz1NLqUsTqfDErnDGMQMHxEVYA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

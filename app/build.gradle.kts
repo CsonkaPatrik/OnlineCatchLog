@@ -54,12 +54,9 @@ android {
 
 dependencies {
 
-    kapt("com.google.dagger:hilt-compiler:2.48")
-    implementation("com.google.dagger:hilt-android:2.48")
-
-    //AddAccount
-    implementation("androidx.navigation:navigation-compose:2.6.0")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    //ROOM
+    implementation("androidx.room:room-ktx:2.5.0")
+    kapt ("androidx.room:room-compiler:2.5.0")
 
     //Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
@@ -71,6 +68,11 @@ dependencies {
     implementation(libs.ui)
     implementation(libs.androidx.material)
     implementation(libs.ui.tooling.preview)
+    implementation("androidx.navigation:navigation-compose:2.6.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    kapt("com.google.dagger:hilt-compiler:2.48")
+    implementation("com.google.dagger:hilt-android:2.48")
 
     //splash screen
     implementation(libs.androidx.core.splashscreen)

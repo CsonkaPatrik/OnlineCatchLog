@@ -5,6 +5,8 @@ import eu.thesis.onlinecatchlog.SIGN_IN_SCREEN
 import eu.thesis.onlinecatchlog.model.service.AccountService
 import eu.thesis.onlinecatchlog.screens.MainAppViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.thesis.onlinecatchlog.ACCOUNT_SCREEN
+import eu.thesis.onlinecatchlog.CATCHLOG_SCREEN
 import eu.thesis.onlinecatchlog.MAIN_VIEW_SCREEN
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
@@ -27,7 +29,8 @@ class LoginViewModel @Inject constructor(
     fun onSignInClick(openAndPopUp: (String, String) -> Unit) {
         launchCatching {
             accountService.signIn(email.value, password.value)
-            openAndPopUp(MAIN_VIEW_SCREEN, SIGN_IN_SCREEN)
+            openAndPopUp(CATCHLOG_SCREEN, SIGN_IN_SCREEN)
         }
     }
+
 }
