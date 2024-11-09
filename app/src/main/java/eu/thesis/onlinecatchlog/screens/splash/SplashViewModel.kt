@@ -1,6 +1,7 @@
 package eu.thesis.onlinecatchlog.screens.splash
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.thesis.onlinecatchlog.CATCHLOG_SCREEN
 import eu.thesis.onlinecatchlog.MAIN_VIEW_SCREEN
 import eu.thesis.onlinecatchlog.SIGN_IN_SCREEN
 import eu.thesis.onlinecatchlog.SPLASH_SCREEN
@@ -14,7 +15,7 @@ class SplashViewModel @Inject constructor(
 ) : MainAppViewModel() {
 
     fun onAppStart(openAndPopUp: (String, String) -> Unit) {
-        if (accountService.hasUser()) openAndPopUp(MAIN_VIEW_SCREEN, SPLASH_SCREEN)
+        if (accountService.hasUser()) openAndPopUp(CATCHLOG_SCREEN, SPLASH_SCREEN)
         else openAndPopUp(SIGN_IN_SCREEN, SPLASH_SCREEN)
     }
 }

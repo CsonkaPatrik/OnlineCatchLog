@@ -11,4 +11,11 @@ class MainAppState(val navController: NavHostController) {
             popUpTo(popUp) { inclusive = true }
         }
     }
+
+    fun clearAndNavigate(route: String) {
+        navController.navigate(route) {
+            launchSingleTop = true
+            popUpTo(0) { inclusive = true }
+        }
+    }
 }
