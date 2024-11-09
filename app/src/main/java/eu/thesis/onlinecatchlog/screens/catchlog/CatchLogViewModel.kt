@@ -3,19 +3,30 @@ package eu.thesis.onlinecatchlog.screens.catchlog
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.thesis.onlinecatchlog.ACCOUNT_SCREEN
+import eu.thesis.onlinecatchlog.CATCHLOG_SCREEN
+import eu.thesis.onlinecatchlog.SIGN_IN_SCREEN
 import eu.thesis.onlinecatchlog.model.service.CatchLog
 import eu.thesis.onlinecatchlog.model.service.CatchLogState
 import eu.thesis.onlinecatchlog.model.service.module.SortType
+import eu.thesis.onlinecatchlog.screens.MainAppViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
 @OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
 class CatchLogViewModel @Inject constructor(
     private val dao: CatchLogDao
-): ViewModel() {
+): MainAppViewModel() {
+
+    fun onAccountClick(openAndPopUp: (String, String) -> Unit) {
+        launchCatching {
+            openAndPopUp(ACCOUNT_SCREEN, CATCHLOG_SCREEN)
+        }
+    }
 
     private val _sortType = MutableStateFlow(SortType.TIME)
     private val _catchLogs = _sortType

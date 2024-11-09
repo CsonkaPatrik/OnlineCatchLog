@@ -63,11 +63,11 @@ fun NavGraphBuilder.notesGraph(appState: MainAppState) {
         SplashScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
     composable(ACCOUNT_SCREEN){
-        AccountView(restartApp = { route -> appState.clearAndNavigate(route) })
+        AccountView(restartApp = { route -> appState.clearAndNavigate(route) }, openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
     composable(CATCHLOG_SCREEN) {
         val viewModel: CatchLogViewModel = hiltViewModel()
         val state by viewModel.state.collectAsState()
-        CatchLogView(state = state, onEvent = viewModel::onEvent)
+        CatchLogView(state = state, onEvent = viewModel::onEvent, openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 }
