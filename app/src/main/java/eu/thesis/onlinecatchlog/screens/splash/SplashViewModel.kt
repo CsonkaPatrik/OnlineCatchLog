@@ -2,7 +2,6 @@ package eu.thesis.onlinecatchlog.screens.splash
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.thesis.onlinecatchlog.CATCHLOG_SCREEN
-import eu.thesis.onlinecatchlog.MAIN_VIEW_SCREEN
 import eu.thesis.onlinecatchlog.SIGN_IN_SCREEN
 import eu.thesis.onlinecatchlog.SPLASH_SCREEN
 import eu.thesis.onlinecatchlog.model.service.AccountService

@@ -1,6 +1,5 @@
 package eu.thesis.onlinecatchlog.screens.catchlog
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

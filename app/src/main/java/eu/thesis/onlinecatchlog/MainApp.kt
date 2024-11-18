@@ -20,7 +20,6 @@ import eu.thesis.onlinecatchlog.screens.account.AccountView
 import eu.thesis.onlinecatchlog.screens.catchlog.CatchLogView
 import eu.thesis.onlinecatchlog.screens.catchlog.CatchLogViewModel
 import eu.thesis.onlinecatchlog.screens.login.LoginView
-import eu.thesis.onlinecatchlog.screens.main.MainView
 import eu.thesis.onlinecatchlog.screens.splash.SplashScreen
 import eu.thesis.onlinecatchlog.ui.theme.OnlineCatchLogTheme
 
@@ -56,9 +55,6 @@ fun NavGraphBuilder.notesGraph(appState: MainAppState) {
         LoginView(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }
 
-    composable(MAIN_VIEW_SCREEN){
-        MainView()
-    }
     composable(SPLASH_SCREEN){
         SplashScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) })
     }

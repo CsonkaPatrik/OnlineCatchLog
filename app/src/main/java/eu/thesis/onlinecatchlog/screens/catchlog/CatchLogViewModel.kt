@@ -1,11 +1,9 @@
 package eu.thesis.onlinecatchlog.screens.catchlog
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.thesis.onlinecatchlog.ACCOUNT_SCREEN
 import eu.thesis.onlinecatchlog.CATCHLOG_SCREEN
-import eu.thesis.onlinecatchlog.SIGN_IN_SCREEN
 import eu.thesis.onlinecatchlog.model.service.CatchLog
 import eu.thesis.onlinecatchlog.model.service.CatchLogState
 import eu.thesis.onlinecatchlog.model.service.module.SortType
