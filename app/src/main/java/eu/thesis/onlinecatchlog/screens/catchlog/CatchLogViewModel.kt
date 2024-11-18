@@ -76,7 +76,7 @@ class CatchLogViewModel @Inject constructor(
                     lakeName = "",
                     lakeCode = 0,
                     fishName = "",
-                    fishWeight = 0
+                    fishWeight = 0.0
                 ) }
             }
             is CatchLogEvent.setLakeName -> {

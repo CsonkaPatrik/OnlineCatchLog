@@ -1,5 +1,6 @@
 package eu.thesis.onlinecatchlog.screens.catchlog
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -42,14 +43,10 @@ fun AddLogDialog(
                     }
                 )
                 TextField(
-                    value = state.lakeCode.toString(),
+                    value = if (state.lakeCode == 0) "" else state.lakeCode.toString(),
                     onValueChange = {
-                        val lakeCodeInt = it.toIntOrNull()
-                        if (lakeCodeInt != null) {
-                            onEvent(CatchLogEvent.setLakeCode(lakeCodeInt))
-                        } else {
-                            //TODO
-                        }
+                        val intValue = it.toIntOrNull() ?: 0
+                        onEvent(CatchLogEvent.setLakeCode(intValue))
                     },
                     placeholder = {
                         Text(text = "Víztérkód")
@@ -67,17 +64,13 @@ fun AddLogDialog(
                 )
 
                 TextField(
-                    value = state.fishWeight.toString(),
+                    value = if (state.fishWeight == 0.0) "" else state.fishWeight.toString(),
                     onValueChange = {
-                        val fishWeightInt = it.toIntOrNull()
-                        if (fishWeightInt != null) {
-                            onEvent(CatchLogEvent.setFishWeight(fishWeightInt))
-                        } else {
-                            //TODO
-                        }
+                        val doubleValue = it.toDoubleOrNull() ?: 0.0
+                        onEvent(CatchLogEvent.setFishWeight(doubleValue))
                     },
                     placeholder = {
-                        Text(text = "Hal súlya (kg)")
+                        Text(text = "Hal súlya")
                     },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )

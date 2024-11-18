@@ -11,5 +11,5 @@ data class CatchLog(
     val lakeName: String,
     val lakeCode: Int,
     val fishName: String,
-    val fishWeight: Int
+    val fishWeight: Double
 )

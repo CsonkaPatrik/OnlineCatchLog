@@ -10,6 +10,6 @@ interface CatchLogDao {
     @Upsert
     fun upsertCatchLog(catchLog: CatchLog)
 
-    @Query("SELECT * FROM catchlog ORDER BY catchTime ASC")
+    @Query("SELECT * FROM catchlog ORDER BY catchTime DESC")
     fun getLogsOrderedByTime(): Flow<List<CatchLog>>
 }

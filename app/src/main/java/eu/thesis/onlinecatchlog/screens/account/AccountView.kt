@@ -1,5 +1,6 @@
 package eu.thesis.onlinecatchlog.screens.account
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +20,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -39,7 +41,8 @@ fun AccountView(
 
     Column(modifier = Modifier
         .fillMaxWidth()
-        .fillMaxHeight()) {
+        .fillMaxHeight(),
+        horizontalAlignment = Alignment.CenterHorizontally) {
         TopAppBar(
             title = { Text(stringResource(R.string.app_name)) },
             actions = {

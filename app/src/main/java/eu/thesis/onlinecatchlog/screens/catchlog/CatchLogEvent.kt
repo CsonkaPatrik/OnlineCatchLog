@@ -8,7 +8,7 @@ sealed interface CatchLogEvent {
     data class setLakeName(val lakeName: String): CatchLogEvent
     data class setLakeCode(val lakeCode: Int): CatchLogEvent
     data class setFishName(val fishName: String): CatchLogEvent
-    data class setFishWeight(val fishWeight: Int): CatchLogEvent
+    data class setFishWeight(val fishWeight: Double): CatchLogEvent
     object ShowDialog: CatchLogEvent
     object HideDialog: CatchLogEvent
     data class SortLogs(val sortType: SortType): CatchLogEvent

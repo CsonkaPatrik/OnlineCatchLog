@@ -8,7 +8,7 @@ data class CatchLogState(
     val lakeName: String = "",
     val lakeCode: Int = 0,
     val fishName: String = "",
-    val fishWeight: Int = 0,
+    val fishWeight: Double = 0.0,
     val sortType: SortType = SortType.TIME,
 
     val isAddingCatchLog: Boolean = false

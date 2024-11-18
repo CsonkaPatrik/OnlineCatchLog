@@ -15,6 +15,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.thesis.onlinecatchlog.R
 import eu.thesis.onlinecatchlog.model.service.CatchLogState
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Composable
 fun CatchLogView(
@@ -56,6 +59,9 @@ fun CatchLogView(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             items(state.catchLogs) { catchLog ->
+                val formattedDate = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                    .format(Date(catchLog.catchTime))
+
                 Row(
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -63,12 +69,12 @@ fun CatchLogView(
                         modifier = Modifier.weight(1f)
                     ) {
                         Text(
-                            text = "${catchLog.fishName} ${catchLog.fishWeight}",
+                            text = "${catchLog.fishName} ${catchLog.fishWeight} KG",
                             fontSize = 20.sp
                         )
-                        Text(text = catchLog.catchTime.toString(), fontSize = 12.sp)
-                        Text(text = catchLog.lakeName, fontSize = 12.sp)
-                        Text(text = catchLog.lakeCode.toString(), fontSize = 6.sp)
+                        Text(text = formattedDate, fontSize = 12.sp)
+                        Text(text = catchLog.lakeName, fontSize = 20.sp)
+                        Text(text = catchLog.lakeCode.toString(), fontSize = 12.sp)
                     }
                 }
             }
